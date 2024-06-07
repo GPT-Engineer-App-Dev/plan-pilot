@@ -1,14 +1,18 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Index from "./pages/Index.jsx";
+import { ChakraProvider, Box } from '@chakra-ui/react';
+import Header from './components/Header';
+import MainSection from './components/MainSection';
+import Footer from './components/Footer';
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<Index />} />
-      </Routes>
-    </Router>
-  );
-}
+const App = () => (
+  <ChakraProvider>
+    <Box display="flex" flexDirection="column" minHeight="100vh">
+      <Header />
+      <Box flex="1">
+        <MainSection />
+      </Box>
+      <Footer />
+    </Box>
+  </ChakraProvider>
+);
 
 export default App;
